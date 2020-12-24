@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
       return res.status(401).send("User already exist");
     }
 
-    //3. Bcrypt the user password
+    //3. Bcrypt the user password using jwt
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
