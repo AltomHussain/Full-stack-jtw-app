@@ -1,0 +1,39 @@
+The steps to creat the app
+1-in the terminal type  mkdir server and then cd into server
+2-npm init -y
+3- npm i express cors pg jsonwebtoken bcrypt:
+   1-cors: allwos different domain apps to interact with each others. or backend to interact with FE
+   2-pg: allwos us to interact with our postgres db.
+   3-jsonwebtoken: is away for us to gernerate out jwt and being able to verify it.
+   4-bcrypt: is a way to incrypt our password.
+4-touch index.js to create file which the glu of the app that is going to put everthing together.
+
+5-if you wnat ot creat jwt generator we have to have a secret. but before teh secret you need to install (npm i dotenv)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Incase you fogot to enter the commant prompt to create db here are the steps:
+1-psql -U posgtres to enter
+2-passward.
+3-if you want to see all your dbs \l
+4-if you wnat move inside one of your db \c nameof the db
+5-to quite the db \q
