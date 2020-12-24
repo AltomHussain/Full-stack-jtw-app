@@ -3,6 +3,7 @@ const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validInfo")
+const authorization = require("../middleware/authorization")
 //Registering
 router.post("/register", validInfo, async (req, res) => {
   try {
@@ -66,4 +67,18 @@ res.status(401).json("Password or Email is incorrect")
     res.status(500).send("Server Error");
   }
 });
+
+//this middle ware is going to consistantly verify the jwt whenever the react refreshes
+router.get("/is-verify", authorization, async(req, res)=>{
+    try {
+        //if the person is valid return true
+        res.json(true)
+        
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send("Server Error")
+    }
+})
+
+
 module.exports = router;
