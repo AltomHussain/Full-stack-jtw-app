@@ -53,12 +53,13 @@ if(user.rows.length===0){
 }
     //3-check if incoming password is same as the db password. we're comparing between the password that use entered with the password that exist in the db and will return true or false
     const validPassword = await bcrypt.compare(password, user.rows[0].user_password)
-
+console.log(validPassword);
     if(!validPassword){
 res.status(401).json("Password or Email is incorrect")
     }
     //4-give the them jwt token
     const token = jwtGenerator(user.rows[0].user_id);
+
   res.json({token})
 
 
@@ -72,8 +73,7 @@ res.status(401).json("Password or Email is incorrect")
 router.get("/is-verify", authorization, async(req, res)=>{
     try {
         //if the person is valid return true
-        res.json(true)
-        
+        // res.json(true)
     } catch (error) {
         console.log(error.message);
         res.status(500).send("Server Error")

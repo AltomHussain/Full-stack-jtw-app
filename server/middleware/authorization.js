@@ -10,17 +10,20 @@ module.exports = async (req, res, next) => {
 
     const jwtToken = req.header("token"); //to get the token from the header
     //check if the token exist of not
-    if (!token) {
+    if (!jwtToken) {
       return res.status(403).json("Not authorized");
     }
 
-    //if you have a token check if it's valid and not just fake one
+    //if you have a token, check if it's valid and not just fake one
     //Verify method takes two args 1-token, 2-the secret. 
     //if it's verified it is going to return payload to use in our app
-    const payload = jwt.verify(jwtToken, process.env.jwtSecret)
+    const payload = jwt.verify(jwtToken, process.env.jwtSecret);
     req.user = payload.user //the user here exist in jwt generator
+    //  res.json(req.user)
+    console.log( req.user);
+    next()
   } catch (error) {
     console.log(error.message);
-    res.status(403).json("You are not authorized");
+    res.status(403).json("You are not authorized to access dashboard");
   }
 };

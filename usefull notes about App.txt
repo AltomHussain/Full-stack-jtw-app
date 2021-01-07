@@ -6,6 +6,7 @@ The steps to creat the app
    2-pg: allwos us to interact with our postgres db.
    3-jsonwebtoken: is away for us to gernerate out jwt and being able to verify it.
    4-bcrypt: is a way to incrypt our password.
+   5-dotenv: fot saving the secret to use it for generating
 4-touch index.js to create file which the glu of the app that is going to put everthing together.
 
 5-if you wnat ot creat jwt generator we have to have a secret. but before teh secret you need to install (npm i dotenv)
