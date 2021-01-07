@@ -9,7 +9,8 @@ app.use(express.json())
 //use cors() to make BE interact with FE
 app.use(cors())
 
-
+//Dashboard route
+app.use("/dashboard", require("./routes/dashboard"))
 
 
 //Routes//
