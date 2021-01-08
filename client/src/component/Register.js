@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-export default function Register() {
+export default function Register({setAuth}) {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -21,8 +21,9 @@ const onSubmitForm = async(e)=>{
         })
         const parseRes = await res.json()
 
-        console.log(parseRes);
-        
+     //set up to the local storage
+     localStorage.setItem("token", parseRes.token)
+     setAuth(true)
     } catch (error) {
         console.log(error.message);
     }
