@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import {Link} from "react-router-dom"
 
 export default function Register({setAuth}) {
   const [inputs, setInputs] = useState({
@@ -61,6 +62,8 @@ const onSubmitForm = async(e)=>{
           onChange={(e)=>onChange(e)}
         />
         <button className="btn btn-success btn-block my-3">Submit</button>
+        <Link to="/login">Login</Link>
+
       </form>
     </Fragment>
   );
