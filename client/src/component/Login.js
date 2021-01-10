@@ -22,6 +22,7 @@ try {
     })
     const parseRes = await res.json();
     localStorage.setItem("token", parseRes.token);
+    
     setAuth(true)
     console.log(parseRes);
 } catch (error) {
