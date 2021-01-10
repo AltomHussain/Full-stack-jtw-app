@@ -21,8 +21,6 @@ const onSubmitForm = async(e)=>{
             body: JSON.stringify(body)
         })
         const parseRes = await res.json()
-        console.log(parseRes);
-
      //set up to the local storage
      if(parseRes.token){
        localStorage.setItem("token", parseRes.token)
