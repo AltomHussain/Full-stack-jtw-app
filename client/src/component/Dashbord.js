@@ -1,5 +1,5 @@
 import React,{Fragment, useState, useEffect} from 'react'
-
+import {toast} from "react-toastify";
 export default function Dashbord({setAuth}) {
     const [name, setName] = useState("");
     
@@ -19,7 +19,8 @@ async function getName(){
 const logout = (e)=>{
 e.preventDefault()
 localStorage.removeItem("token");
-setAuth(false)
+setAuth(false);
+toast.success("Logout successfully "+ name);
 }
     useEffect(()=>{
         getName()
