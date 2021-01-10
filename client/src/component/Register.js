@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import {Link} from "react-router-dom"
-
+import {toast} from "react-toastify";
 export default function Register({setAuth}) {
   const [inputs, setInputs] = useState({
     email: "",
@@ -21,11 +21,15 @@ const onSubmitForm = async(e)=>{
             body: JSON.stringify(body)
         })
         const parseRes = await res.json()
-        console.log(parseRes);
-
      //set up to the local storage
-     localStorage.setItem("token", parseRes.token)
-     setAuth(true)
+     if(parseRes.token){
+       localStorage.setItem("token", parseRes.token)
+       setAuth(true)
+toast.success("Registered successfully");
+     }else{
+      setAuth(false)
+      toast.error(parseRes)
+     }
     } catch (error) {
         console.log(error.message);
     }
