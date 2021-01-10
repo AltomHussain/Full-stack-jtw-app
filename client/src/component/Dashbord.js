@@ -23,7 +23,7 @@ setAuth(false)
 }
     useEffect(()=>{
         getName()
-    })
+    }, [])
     return (
        <Fragment>
            <h1>dashboard</h1>
